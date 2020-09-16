@@ -60,8 +60,8 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route exact path='/challenges' render={() => (
-            <Challenges />
+          <AuthenticatedRoute exact path='/challenges' render={({ match }) => (
+            <Challenges user={user} match={match} msgAlert={this.msgAlert} />
           )} />
           <AuthenticatedRoute user={user} path='/challenges-create' render={({ match }) => (
             <CreateChallenge user={user} match={match} msgAlert={this.msgAlert}/>

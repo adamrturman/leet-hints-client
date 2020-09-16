@@ -15,16 +15,16 @@ class Challenges extends Component {
       challenges: []
     }
   }
-
   // this is called whenever our component is created and inserted
   // into the DOM (first appears)
   componentDidMount () {
+    console.log(this.props)
     // make a GET request for all of the challenges
     axios({
-      url: `${apiUrl}/challenges`
-      // headers: {
-      //   'Authorization': `Token token=${this.props.user.token}`
-      // }
+      url: `${apiUrl}/challenges`,
+      headers: {
+        'Authorization': `Bearer ${this.props.user.token}`
+      }
     })
       .then(res => this.setState({ challenges: res.data.challenges }))
       .catch(console.error)
