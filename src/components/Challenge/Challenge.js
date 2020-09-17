@@ -74,6 +74,7 @@ class Challenge extends Component {
         <a href={challenge.link}><p>Link to the problem</p></a>
         <p>Hint: {challenge.hint}</p>
         <p>Big O Complexity: {challenge.complexity}</p>
+        <p>Comments: {challenge.comments}</p>
         <button onClick={this.destroy}>Delete Challenge</button>
         <Link to={`/challenges/${this.props.match.params.id}/edit`}>
           <button>Edit</button>

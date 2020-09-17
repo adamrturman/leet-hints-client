@@ -21,6 +21,7 @@ class Challenges extends Component {
     console.log('this is this', this)
     console.log('this is this.state', this.state)
     console.log('this is this.state.challenges', this.state.challenges)
+    console.log('this is this.props', this.props)
     // make a GET request for all of the challenges
     axios({
       url: `${apiUrl}/challenges`,

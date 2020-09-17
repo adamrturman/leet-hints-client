@@ -1,62 +1,63 @@
 import React from 'react'
 import { Link } from 'react-router-dom'
-//  import Form from 'react-bootstrap/Form'
+import Form from 'react-bootstrap/Form'
+import Button from 'react-bootstrap/Button'
 
 const ChallengeForm = ({ challenge, handleSubmit, handleChange, cancelPath }) => (
-  <form onSubmit={handleSubmit}>
-    <label>Title</label>
-    <input
+  <Form onSubmit={handleSubmit}>
+    <Form.Label>Title</Form.Label>
+    <Form.Control
       placeholder="Two Sum"
       value={challenge.title}
       name="title"
       onChange={handleChange}
     />
 
-    <label>Description</label>
-    <input
+    <Form.Label>Description</Form.Label>
+    <Form.Control
       placeholder="what is the problem"
       value={challenge.author}
       name="description"
       onChange={handleChange}
     />
 
-    <label>Difficulty</label>
-    <input
+    <Form.Label>Difficulty</Form.Label>
+    <Form.Control
       placeholder="Easy-Medium-Hard"
       value={challenge.difficulty}
       name="difficulty"
       onChange={handleChange}
     />
 
-    <label>Link</label>
-    <input
+    <Form.Label>Link</Form.Label>
+    <Form.Control
       placeholder="www.leetcode.com/two-sum"
       value={challenge.link}
       name="link"
       onChange={handleChange}
     />
 
-    <label>Hint</label>
-    <input
+    <Form.Label>Hint</Form.Label>
+    <Form.Control
       placeholder="Try this..."
       value={challenge.hint}
       name="hint"
       onChange={handleChange}
     />
 
-    <label>Big O Complexity</label>
-    <input
+    <Form.Label>Big O Complexity</Form.Label>
+    <Form.Control
       placeholder="O(n)"
       value={challenge.complexity}
       name="complexity"
       onChange={handleChange}
     />
 
-    <button type="submit">Submit</button>
+    <Button type="submit">Submit</Button>
     <Link to={cancelPath}>
-      <button>Cancel</button>
+      <Button>Cancel</Button>
     </Link>
-  </form>
+  </Form>
 )
 
 export default ChallengeForm
