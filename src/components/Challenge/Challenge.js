@@ -4,6 +4,8 @@ import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
 import Layout from '../shared/Layout/Layout'
+import Button from 'react-bootstrap/Button'
+import Card from 'react-bootstrap/Card'
 import messages from '../AutoDismissAlert/messages'
 
 class Challenge extends Component {
@@ -68,18 +70,26 @@ class Challenge extends Component {
 
     return (
       <Layout>
-        <h4>Title: {challenge.title}</h4>
-        <p>Description: {challenge.description}</p>
-        <p>Difficulty: {challenge.difficulty}</p>
-        <a href={challenge.link}><p>Link to the problem</p></a>
-        <p>Hint: {challenge.hint}</p>
-        <p>Big O Complexity: {challenge.complexity}</p>
-        <p>Comments: {challenge.comments}</p>
-        <button onClick={this.destroy}>Delete Challenge</button>
-        <Link to={`/challenges/${this.props.match.params.id}/edit`}>
-          <button>Edit</button>
-        </Link>
-        <Link to="/challenges">Back to all challenges</Link>
+        <Card style={{ width: '18rem' }}>
+          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Body>
+            <Card.Title>Title: {challenge.title}</Card.Title>
+            <Card.Text>
+              <p>Description: {challenge.description}</p>
+              <p>Difficulty: {challenge.difficulty}</p>
+              <a href={challenge.link}><p>Link to the problem</p></a>
+              <p>Hint: {challenge.hint}</p>
+              <p>Big O Complexity: {challenge.complexity}</p>
+              <p>Comments: {challenge.comments}</p>
+              <button onClick={this.destroy}>Delete Challenge</button>
+              <Link to={`/challenges/${this.props.match.params.id}/edit`}>
+                <button>Edit</button>
+              </Link>
+              <Link to="/challenges">Back to all challenges</Link>
+            </Card.Text>
+            <Button variant="primary">Go somewhere</Button>
+          </Card.Body>
+        </Card>
       </Layout>
     )
   }

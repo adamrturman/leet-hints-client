@@ -84,7 +84,7 @@ class EditChallenge extends Component {
           challenge={challenge}
           handleChange={handleChange}
           handleSubmit={handleSubmit}
-          cancelPath="/"
+          cancelPath="/challenges"
         />
       </Layout>
     )
