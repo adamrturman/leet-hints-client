@@ -3,6 +3,7 @@ import { Route } from 'react-router-dom'
 
 import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
+import Challenge from '../Challenge/Challenge'
 import Challenges from '../Challenges/Challenges'
 import CreateChallenge from '../CreateChallenge/CreateChallenge'
 import Header from '../Header/Header'
@@ -62,6 +63,9 @@ class App extends Component {
           )} />
           <Route exact path='/challenges' render={() => (
             <Challenges user={user} msgAlert={this.msgAlert} />
+          )} />
+          <Route exact path='/challenges/:id' render={({ match }) => (
+            <Challenge user={user} match={match} msgAlert={this.msgAlert} />
           )} />
           <AuthenticatedRoute user={user} path='/challenges-create' render={({ match }) => (
             <CreateChallenge user={user} match={match} msgAlert={this.msgAlert}/>
