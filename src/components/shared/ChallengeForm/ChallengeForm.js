@@ -45,6 +45,15 @@ const ChallengeForm = ({ challenge, handleSubmit, handleChange, cancelPath }) =>
       onChange={handleChange}
     />
 
+    <Form.Label>Select Big O Complexity: </Form.Label>
+    <Form.Control as="select" custom name="complexity" value={challenge.complexity}>
+      <option value="Constant">O(1)</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </Form.Control>
+
     <Form.Label>Big O Complexity</Form.Label>
     <Form.Control
       placeholder="O(n)"
@@ -52,7 +61,6 @@ const ChallengeForm = ({ challenge, handleSubmit, handleChange, cancelPath }) =>
       name="complexity"
       onChange={handleChange}
     />
-
     <Button type="submit">Submit</Button>
     <Link to={cancelPath}>
       <Button>Cancel</Button>

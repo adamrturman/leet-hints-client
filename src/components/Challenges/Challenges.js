@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import Layout from '../shared/Layout/Layout'
-import Card from 'react-bootstrap/Card'
+import ChallengesCards from '../ChallengesCards/ChallengesCards'
 
 import apiUrl from '../../apiConfig'
 
@@ -34,28 +34,28 @@ class Challenges extends Component {
       .catch(console.error)
   }
 
+  // render () {
+  //   const challenges = this.state.challenges.map(challenge => (
+  //     <li key={challenge._id}>
+  //       <Link to={`/challenges/${challenge._id}`}>
+  //         {challenge.title}
+  //       </Link>
+  //     </li>
+  //   ))
+
   render () {
     const challenges = this.state.challenges.map(challenge => (
-      <li key={challenge._id}>
-        <Link to={`/challenges/${challenge._id}`}>
-          {challenge.title}
-        </Link>
-      </li>
+      <Link key={challenge._id} to={`/challenges/${challenge._id}`}>
+        <ChallengesCards card={challenge} />
+      </Link>
     ))
 
     return (
       <Layout>
-        <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
-          <Card.Body>
-            <Card.Title>Checkout out these challenges: </Card.Title>
-            <Card.Text>
-              <div className='container col-sm-12'>
-                {challenges}
-              </div>
-            </Card.Text>
-          </Card.Body>
-        </Card>
+        <div className='container col-sm-12'>
+          <h2>Check out these challenges</h2>
+          {challenges}
+        </div>
       </Layout>
     )
   }

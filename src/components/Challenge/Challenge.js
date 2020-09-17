@@ -81,13 +81,16 @@ class Challenge extends Component {
               <p>Hint: {challenge.hint}</p>
               <p>Big O Complexity: {challenge.complexity}</p>
               <p>Comments: {challenge.comments}</p>
-              <button onClick={this.destroy}>Delete Challenge</button>
+              <p>Added by: {challenge.owner}</p>
+              <Button variant="danger" onClick={this.destroy}>Delete Challenge</Button>
               <Link to={`/challenges/${this.props.match.params.id}/edit`}>
-                <button>Edit</button>
+                <Button>Edit</Button>
               </Link>
-              <Link to="/challenges">Back to all challenges</Link>
+              <Link to="/challenges">
+                <Button>Back to all challenges</Button>
+              </Link>
             </Card.Text>
-            <Button variant="primary">Go somewhere</Button>
+            <Button variant="primary">Reveal hints</Button>
           </Card.Body>
         </Card>
       </Layout>

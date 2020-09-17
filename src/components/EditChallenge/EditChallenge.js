@@ -61,6 +61,11 @@ class EditChallenge extends Component {
       data: { challenge: this.state.challenge }
     })
       .then(res => this.setState({ updated: true }))
+      .then(() => this.props.msgAlert({
+        heading: 'Edit Success',
+        message: messages.editChallengeSuccess,
+        variant: 'success'
+      }))
       .catch(error => {
         this.props.msgAlert({
           heading: 'Failure' + error,
