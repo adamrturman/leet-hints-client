@@ -70,7 +70,7 @@ class ChallengeCreate extends Component {
     const { createdChallengeId, challenge } = this.state
 
     if (createdChallengeId) {
-      return <Redirect to={`/challenges/${createdChallengeId}`} />
+      return <Redirect to={'/challenges/'} />
     }
 
     return (

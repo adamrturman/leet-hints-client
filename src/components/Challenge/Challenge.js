@@ -4,6 +4,7 @@ import axios from 'axios'
 
 import apiUrl from '../../apiConfig'
 import Layout from '../shared/Layout/Layout'
+import messages from '../AutoDismissAlert/messages'
 
 class Challenge extends Component {
   constructor (props) {
@@ -36,6 +37,12 @@ class Challenge extends Component {
       method: 'DELETE'
     })
       .then(() => this.setState({ deleted: true }))
+      .then(() => this.props.msgAlert({
+        heading: 'Deleted challenge',
+        message: messages.deleteChallengeSuccess,
+        variant: 'success'
+      }))
+      .then(() => history.push('/'))
       .catch(console.error)
   }
 
@@ -48,7 +55,7 @@ class Challenge extends Component {
 
     if (deleted) {
       return <Redirect to={
-        { pathname: '/', state: { msg: 'You deleted that challenge' } }
+        { pathname: '/challenges', state: { msg: 'You deleted that challenge' } }
       } />
     }
 
