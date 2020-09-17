@@ -52,7 +52,8 @@ class ChallengeCreate extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-
+    console.log('this is this', this)
+    console.log('this is this.props', this.props)
     axios({
       url: `${apiUrl}/challenges`,
       headers: {
@@ -61,10 +62,9 @@ class ChallengeCreate extends Component {
       method: 'POST',
       data: { challenge: this.state.challenge }
     })
-      .then(res => this.setState({ createdchallengeId: res.data.challenge._id }))
+      .then(res => this.setState({ createdChallengeId: res.data.challenge._id }))
       .catch(console.error)
   }
-
   render () {
     const { handleChange, handleSubmit } = this
     const { createdChallengeId, challenge } = this.state

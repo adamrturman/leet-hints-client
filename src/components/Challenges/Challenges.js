@@ -18,7 +18,9 @@ class Challenges extends Component {
   // this is called whenever our component is created and inserted
   // into the DOM (first appears)
   componentDidMount () {
-    console.log(this.props)
+    console.log('this is this', this)
+    console.log('this is this.state', this.state)
+    console.log('this is this.state.challenges', this.state.challenges)
     // make a GET request for all of the challenges
     axios({
       url: `${apiUrl}/challenges`,
@@ -32,9 +34,11 @@ class Challenges extends Component {
 
   render () {
     const challenges = this.state.challenges.map(challenge => (
-      <Link key={challenge._id} to={`/challenges/${challenge._id}`}>
-        <challengesCards card={challenge} />
-      </Link>
+      <li key={challenge._id}>
+        <Link to={`/challenges/${challenge._id}`}>
+          {challenge.title}
+        </Link>
+      </li>
     ))
 
     return (
