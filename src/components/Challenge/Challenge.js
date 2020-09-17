@@ -42,7 +42,7 @@ class Challenge extends Component {
         message: messages.deleteChallengeSuccess,
         variant: 'success'
       }))
-      .then(() => history.push('/'))
+      .then(() => this.props.history.push('/'))
       .catch(console.error)
   }
 
@@ -55,7 +55,7 @@ class Challenge extends Component {
 
     if (deleted) {
       return <Redirect to={
-        { pathname: '/challenges', state: { msg: 'You deleted that challenge' } }
+        { pathname: '/challenges' }
       } />
     }
 

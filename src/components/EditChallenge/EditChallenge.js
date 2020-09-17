@@ -6,7 +6,7 @@ import apiUrl from '../../apiConfig'
 import ChallengeForm from '../shared/ChallengeForm/ChallengeForm'
 import Layout from '../shared/Layout/Layout'
 
-class CreateChallenge extends Component {
+class EditChallenge extends Component {
   constructor (props) {
     super(props)
 
@@ -18,7 +18,7 @@ class CreateChallenge extends Component {
         link: '',
         hint: ''
       },
-      createdChallengeId: null
+      updated: false
     }
   }
 
@@ -43,7 +43,6 @@ class CreateChallenge extends Component {
       // Copy the updatedField onto the target object (our challenge copy)
       // return the target object as editedchallenge
       const editedChallenge = Object.assign({}, prevState.challenge, updatedField)
-
       // return the state change, that will be shallowly merged into `this.state`
       // in this case, we set the `challenge` state to be the new `editedchallenge`
       return { challenge: editedChallenge }
@@ -52,24 +51,22 @@ class CreateChallenge extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('this is this', this)
-    console.log('this is this.props', this.props)
     axios({
-      url: `${apiUrl}/challenges`,
+      url: `${apiUrl}/challenges/${this.props.match.params.id}`,
       headers: {
         'Authorization': `Bearer ${this.props.user.token}`
       },
-      method: 'POST',
+      method: 'PATCH',
       data: { challenge: this.state.challenge }
     })
-      .then(res => this.setState({ createdChallengeId: res.data.challenge._id }))
+      .then(res => this.setState({ updated: true }))
       .catch(console.error)
   }
   render () {
     const { handleChange, handleSubmit } = this
-    const { createdChallengeId, challenge } = this.state
+    const { updated, challenge } = this.state
 
-    if (createdChallengeId) {
+    if (updated) {
       return <Redirect to={'/challenges/'} />
     }
 
@@ -86,4 +83,4 @@ class CreateChallenge extends Component {
   }
 }
 
-export default CreateChallenge
+export default EditChallenge
