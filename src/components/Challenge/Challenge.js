@@ -43,6 +43,13 @@ class Challenge extends Component {
         variant: 'success'
       }))
       .then(() => this.props.history.push('/'))
+      .catch(error => {
+        this.props.msgAlert({
+          heading: 'Failure' + error,
+          message: messages.deleteChallengeFailure,
+          variant: 'danger'
+        })
+      })
       .catch(console.error)
   }
 
@@ -61,7 +68,12 @@ class Challenge extends Component {
 
     return (
       <Layout>
-        <h4>{challenge.title}</h4>
+        <h4>Title: {challenge.title}</h4>
+        <p>Description: {challenge.description}</p>
+        <p>Difficulty: {challenge.difficulty}</p>
+        <a href={challenge.link}><p>Link to the problem</p></a>
+        <p>Hint: {challenge.hint}</p>
+        <p>Big O Complexity: {challenge.complexity}</p>
         <button onClick={this.destroy}>Delete Challenge</button>
         <Link to={`/challenges/${this.props.match.params.id}/edit`}>
           <button>Edit</button>

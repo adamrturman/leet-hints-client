@@ -5,6 +5,7 @@ import axios from 'axios'
 import apiUrl from '../../apiConfig'
 import ChallengeForm from '../shared/ChallengeForm/ChallengeForm'
 import Layout from '../shared/Layout/Layout'
+import messages from '../AutoDismissAlert/messages'
 
 class EditChallenge extends Component {
   constructor (props) {
@@ -60,6 +61,13 @@ class EditChallenge extends Component {
       data: { challenge: this.state.challenge }
     })
       .then(res => this.setState({ updated: true }))
+      .catch(error => {
+        this.props.msgAlert({
+          heading: 'Failure' + error,
+          message: messages.editChallengeFailure,
+          variant: 'danger'
+        })
+      })
       .catch(console.error)
   }
   render () {
