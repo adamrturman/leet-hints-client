@@ -54,7 +54,7 @@ class Challenges extends Component {
       <Layout>
         <div className='container col-sm-12'>
           <h2>Check out these challenges</h2>
-          {challenges}
+          {challenges.reverse()}
         </div>
       </Layout>
     )

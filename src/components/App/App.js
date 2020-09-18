@@ -6,6 +6,7 @@ import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
 import Challenge from '../Challenge/Challenge'
 import Challenges from '../Challenges/Challenges'
 import Comments from '../Comments/Comments'
+//  import CreateComment from '../CreateComment/CreateComment'
 import CreateChallenge from '../CreateChallenge/CreateChallenge'
 import EditChallenge from '../EditChallenge/EditChallenge'
 import Header from '../Header/Header'
@@ -63,19 +64,19 @@ class App extends Component {
           <AuthenticatedRoute user={user} path='/change-password' render={() => (
             <ChangePassword msgAlert={this.msgAlert} user={user} />
           )} />
-          <Route exact path='/challenges' render={() => (
+          <AuthenticatedRoute user={user} exact path='/challenges' render={() => (
             <Challenges user={user} msgAlert={this.msgAlert} />
           )} />
-          <Route exact path='/challenges/:id' render={({ match }) => (
+          <AuthenticatedRoute user={user} exact path='/challenges/:id' render={({ match }) => (
             <Challenge user={user} match={match} msgAlert={this.msgAlert} />
           )} />
-          <Route exact path='/challenges/:id/edit' render={({ match }) => (
+          <AuthenticatedRoute user={user} exact path='/challenges/:id/edit' render={({ match }) => (
             <EditChallenge user={user} match={match} msgAlert={this.msgAlert} />
           )} />
           <AuthenticatedRoute user={user} path='/challenges-create' render={({ match }) => (
             <CreateChallenge user={user} match={match} msgAlert={this.msgAlert}/>
           )} />
-          <Route exact path='/challenges/:id/comments' render={({ match }) => (
+          <AuthenticatedRoute user={user} exact path='/challenges/:id/comments' render={({ match }) => (
             <Comments user={user} match={match} msgAlert={this.msgAlert} />
           )} />
         </main>

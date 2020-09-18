@@ -9,6 +9,21 @@ Leet Hints is a collection of coding problems that I've solved along with descri
 - [GitHub Client Repo](https://github.com/worldwide-coders/educational-store)
 - [Deployed Client](https://worldwide-coders.github.io/educational-store/#/)
 
+## User Stories
+
+- As an unregistered user, I would like to sign up with email and password.
+- As a registered user, I would like to sign in with email and password.
+- As a signed-in user, I would like to change password.
+- As a signed-in user, I would like to sign out.
+- As a signed-in user, I would like to see all of the challenges.
+- As a signed-in user, I would like to see an individual challenge.
+- As a signed-in user, I would like to edit challenges that I have created.
+- As a signed-in user, I would like to delete challenges that I have created.
+- As a signed-in user, I would like to make comments on other users' challenges.
+- As a signed-in user, I would like to edit comments that I have made.
+- As a signed-in user, I would like to delete comments that I have made.
+
+
 ## Planning Story
 
 - Create the API models and routes.

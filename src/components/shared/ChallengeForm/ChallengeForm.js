@@ -44,15 +44,16 @@ const ChallengeForm = ({ challenge, handleSubmit, handleChange, cancelPath }) =>
       name="hint"
       onChange={handleChange}
     />
-
-    <Form.Label>Select Big O Complexity: </Form.Label>
-    <Form.Control as="select" custom name="complexity" value={challenge.complexity}>
-      <option value="Constant">O(1)</option>
-      <option>2</option>
-      <option>3</option>
-      <option>4</option>
-      <option>5</option>
-    </Form.Control>
+    <Form.Group controlId="complexity" onChange={handleChange} value={challenge.complexity}>
+      <Form.Label>Select Big O Complexity: </Form.Label>
+      <Form.Control as="select" custom name="complexity" value={challenge.complexity}>
+        <option value="Constant">O(1)</option>
+        <option>2</option>
+        <option>3</option>
+        <option>4</option>
+        <option>5</option>
+      </Form.Control>
+    </Form.Group>
 
     <Form.Label>Big O Complexity</Form.Label>
     <Form.Control

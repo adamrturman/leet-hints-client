@@ -6,6 +6,7 @@ import apiUrl from '../../apiConfig'
 import Layout from '../shared/Layout/Layout'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
+import Form from 'react-bootstrap/Form'
 import messages from '../AutoDismissAlert/messages'
 //  import Comments from '../Comments/Comments'
 
@@ -19,18 +20,63 @@ class Challenge extends Component {
     }
   }
 
-  componentDidMount () {
-    console.log('this is this.props', this.props)
-    axios({
-      url: `${apiUrl}/challenges/${this.props.match.params.id}`,
-      headers: {
-        'Authorization': `Bearer ${this.props.user.token}`
-      }
-    })
-      .then(res => this.setState({ challenge: res.data.challenge }))
-      .catch(console.error)
-  }
+    // Create a handleChange function that will be run anytime an input is changed
+    // ex. anytime someone types in the input
+    handleChange = event => {
+      // ensure that the event's properties (especially event.target) are persisted,
+      // i.e. not changed to null, after the handleChange function finishes running
+      //
+      // we need to do this, because the callback we pass to `this.setState`, will
+      // not be called by React until after `handleChange` has finished running.
+      event.persist()
 
+      // use the updater callback function syntax, because our new state depends on
+      // our previous state
+      this.setState(prevState => {
+        // create an object that will keep track of our updated field
+        // ex. if the input's `name` is 'title' and its `value` was `1984`, then updated
+        // field would be the object { 'title': '1984' }
+        const updatedField = { [event.target.name]: event.target.value }
+        // Copy the challenge properties onto the target object {}, creating a copy of `this.state.challenge`
+        // Copy the updatedField onto the target object (our challenge copy)
+        // return the target object as editedchallenge
+        const editedChallenge = Object.assign({}, prevState.challenge, updatedField)
+
+        // return the state change, that will be shallowly merged into `this.state`
+        // in this case, we set the `challenge` state to be the new `editedchallenge`
+        return { challenge: editedChallenge }
+      })
+    }
+
+    handleSubmit = event => {
+      event.preventDefault()
+      const text = document.getElementById('addComment').value
+      console.log('this is text', text)
+      axios({
+        url: `${apiUrl}/challenges/${this.props.match.params.id}/comments`,
+        headers: {
+          'Authorization': `Bearer ${this.props.user.token}`
+        },
+        method: 'POST',
+        data: {
+          'comment': {
+            text
+          }
+        }
+      })
+    }
+
+    componentDidMount () {
+      console.log('this is this.props', this.props)
+      axios({
+        url: `${apiUrl}/challenges/${this.props.match.params.id}`,
+        headers: {
+          'Authorization': `Bearer ${this.props.user.token}`
+        }
+      })
+        .then(res => this.setState({ challenge: res.data.challenge }))
+        .catch(console.error)
+    }
   destroy = () => {
     axios({
       url: `${apiUrl}/challenges/${this.props.match.params.id}`,
@@ -84,8 +130,7 @@ class Challenge extends Component {
               <div> Comments:
                 {challenge.comments.map(comment =>
                   <Card key={comment.id}>
-                    <p>Title: {comment.title}</p>
-                    <p>Text: {comment.text}</p>
+                    <p>{comment.text}</p>
                   </Card>)}
               </div>
               <p>Added by: {challenge.owner}</p>
@@ -93,6 +138,13 @@ class Challenge extends Component {
               <Link to={`/challenges/${this.props.match.params.id}/edit`}>
                 <Button>Edit</Button>
               </Link>
+              <Form onSubmit={this.handleSubmit}>
+                <Form.Group controlId="exampleForm.ControlTextarea1">
+                  <Form.Label>Add a comment</Form.Label>
+                  <Form.Control id="addComment" onChange={this.handleChange} as="textarea" rows="3" />
+                </Form.Group>
+                <Button type="submit">Add a comment</Button>
+              </Form>
               <Link to="/challenges">
                 <Button>Back to all challenges</Button>
               </Link>
