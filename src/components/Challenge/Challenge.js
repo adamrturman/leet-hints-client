@@ -7,6 +7,7 @@ import Layout from '../shared/Layout/Layout'
 import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import messages from '../AutoDismissAlert/messages'
+//  import Comments from '../Comments/Comments'
 
 class Challenge extends Component {
   constructor (props) {
@@ -71,7 +72,7 @@ class Challenge extends Component {
     return (
       <Layout>
         <Card style={{ width: '18rem' }}>
-          <Card.Img variant="top" src="holder.js/100px180" />
+          <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>Title: {challenge.title}</Card.Title>
             <Card.Text>
@@ -80,7 +81,8 @@ class Challenge extends Component {
               <a href={challenge.link}><p>Link to the problem</p></a>
               <p>Hint: {challenge.hint}</p>
               <p>Big O Complexity: {challenge.complexity}</p>
-              <p>Comments: {challenge.comments}</p>
+              <p>Comments: {challenge.comments.map(comment => comment.title)}</p>
+              <p>{challenge.comments.map(comment => comment.text)}</p>
               <p>Added by: {challenge.owner}</p>
               <Button variant="danger" onClick={this.destroy}>Delete Challenge</Button>
               <Link to={`/challenges/${this.props.match.params.id}/edit`}>

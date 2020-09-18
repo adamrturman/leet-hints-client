@@ -5,6 +5,7 @@ import AuthenticatedRoute from '../AuthenticatedRoute/AuthenticatedRoute'
 import AutoDismissAlert from '../AutoDismissAlert/AutoDismissAlert'
 import Challenge from '../Challenge/Challenge'
 import Challenges from '../Challenges/Challenges'
+import Comments from '../Comments/Comments'
 import CreateChallenge from '../CreateChallenge/CreateChallenge'
 import EditChallenge from '../EditChallenge/EditChallenge'
 import Header from '../Header/Header'
@@ -73,6 +74,9 @@ class App extends Component {
           )} />
           <AuthenticatedRoute user={user} path='/challenges-create' render={({ match }) => (
             <CreateChallenge user={user} match={match} msgAlert={this.msgAlert}/>
+          )} />
+          <Route exact path='/challenges/:id/comments' render={({ match }) => (
+            <Comments user={user} match={match} msgAlert={this.msgAlert} />
           )} />
         </main>
       </Fragment>
