@@ -51,7 +51,6 @@ class Challenge extends Component {
     handleSubmit = event => {
       event.preventDefault()
       const text = document.getElementById('addComment').value
-      console.log('this is text', text)
       axios({
         url: `${apiUrl}/challenges/${this.props.match.params.id}/comments`,
         headers: {
@@ -131,6 +130,8 @@ class Challenge extends Component {
                 {challenge.comments.map(comment =>
                   <Card key={comment.id}>
                     <p>{comment.text}</p>
+                    <Button>Edit</Button>
+                    <Button>Delete</Button>
                   </Card>)}
               </div>
               <p>Added by: {challenge.owner}</p>
