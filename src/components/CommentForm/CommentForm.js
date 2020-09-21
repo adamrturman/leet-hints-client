@@ -31,7 +31,7 @@ const CommentForm = ({ comment, handleSubmit, handleChange, cancelPath }) => (
 
     <Form.Label>Link</Form.Label>
     <Form.Control
-      placeholder="www.leetcode.com/two-sum"
+      placeholder="URL"
       value={comment.link}
       name="link"
       onChange={handleChange}

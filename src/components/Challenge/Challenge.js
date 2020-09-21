@@ -17,6 +17,7 @@ class Challenge extends Component {
     this.state = {
       challenge: null,
       deleted: false
+      //  isCommented: false
     }
   }
 
@@ -66,7 +67,6 @@ class Challenge extends Component {
     }
 
     componentDidMount () {
-      console.log('this is this.props', this.props)
       axios({
         url: `${apiUrl}/challenges/${this.props.match.params.id}`,
         headers: {
@@ -74,8 +74,10 @@ class Challenge extends Component {
         }
       })
         .then(res => this.setState({ challenge: res.data.challenge }))
+        .then(res => this.setState({ isCommented: true }))
         .catch(console.error)
     }
+
   destroy = () => {
     axios({
       url: `${apiUrl}/challenges/${this.props.match.params.id}`,
@@ -113,6 +115,11 @@ class Challenge extends Component {
         { pathname: '/challenges' }
       } />
     }
+    // if (isCommented) {
+    //   return <Redirect to={
+    //     { pathname: '/challenges' }
+    //   } />
+    // }
 
     return (
       <Layout>
@@ -130,8 +137,8 @@ class Challenge extends Component {
                 {challenge.comments.map(comment =>
                   <Card key={comment.id}>
                     <p>{comment.text}</p>
-                    <Button>Edit</Button>
-                    <Button>Delete</Button>
+                    <Button>Edit this comment</Button>
+                    <Button variant="danger">Delete this comment</Button>
                   </Card>)}
               </div>
               <p>Added by: {challenge.owner}</p>
