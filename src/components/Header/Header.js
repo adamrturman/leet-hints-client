@@ -12,9 +12,9 @@ const authenticatedOptions = (
   // </Fragment>
   <Fragment>
     <NavDropdown title="Challenges" alignRight id="settings-dropdown">
-      <NavDropdown.Item href="#challenges-create">Add a New Challenge</NavDropdown.Item>
-      <NavDropdown.Divider />
       <NavDropdown.Item href="#challenges">View All Challenges</NavDropdown.Item>
+      <NavDropdown.Divider />
+      <NavDropdown.Item href="#challenges-create">Add a New Challenge</NavDropdown.Item>
     </NavDropdown>
     <NavDropdown title="Options" alignRight id="settings-dropdown">
       <NavDropdown.Item href="#change-password">Change Password</NavDropdown.Item>
@@ -33,7 +33,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link href="/">Home</Nav.Link>
+    <Nav.Link href="/#">Home</Nav.Link>
   </Fragment>
 )
 
