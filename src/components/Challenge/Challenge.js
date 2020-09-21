@@ -49,9 +49,6 @@ class Challenge extends Component {
     }
     //  event handler to create a comment
     handleSubmit = event => {
-      console.log('this is this.state', this.state)
-      console.log('this is this.state.challenge', this.state.challenge)
-      console.log('this is this.state.challenge.description', this.state.challenge.description)
       event.preventDefault()
       const text = document.getElementById('addComment').value
       axios({
@@ -72,6 +69,37 @@ class Challenge extends Component {
           variant: 'success'
         }))
         .then(() => this.setState({ isCommented: true }))
+    }
+    //  listener for editing a comment
+    handleEdit = commentId => {
+      console.log(commentId)
+      event.preventDefault()
+      const text = document.getElementById('editComment').value
+      axios({
+        url: `${apiUrl}/challenges/${this.props.match.params.id}/comments/${commentId}`,
+        headers: {
+          'Authorization': `Bearer ${this.props.user.token}`
+        },
+        method: 'PATCH',
+        data: {
+          'comment': {
+            text
+          }
+        }
+      })
+        .then(() => this.props.msgAlert({
+          heading: 'Success',
+          message: messages.editCommentSuccess,
+          variant: 'success'
+        }))
+        .then(() => this.setState({ isCommented: true }))
+        .catch(error => {
+          this.props.msgAlert({
+            heading: 'Failure' + error,
+            message: messages.editCommentFailure,
+            variant: 'danger'
+          })
+        })
     }
     //  event handler to delete a comment
     handleDelete = commentId => {
@@ -123,7 +151,6 @@ class Challenge extends Component {
         message: messages.deleteChallengeSuccess,
         variant: 'success'
       }))
-      .then(() => this.props.history.push('/'))
       .catch(error => {
         this.props.msgAlert({
           heading: 'Failure' + error,
@@ -173,6 +200,13 @@ class Challenge extends Component {
                 <Card key={comment._id}>
                   <p>{comment.text}</p>
                   <Button onClick={(event) => this.handleDelete(comment._id)} variant="danger">Delete this comment</Button>
+                  <Form onSubmit={this.handleEdit}>
+                    <Form.Group>
+                      <Form.Label>Edit this comment</Form.Label>
+                      <Form.Control id="editComment" onChange={this.handleChange} as="textarea" rows="1" />
+                    </Form.Group>
+                    <Button onClick={(event) => this.handleEdit(comment._id)}>Submit</Button>
+                  </Form>
                 </Card>)}
             </div>
             <p>Added by: {challenge.ownerName}</p>
