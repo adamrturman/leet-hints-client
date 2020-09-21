@@ -52,7 +52,6 @@ class Challenge extends Component {
     handleSubmit = event => {
       event.preventDefault()
       const text = document.getElementById('addComment').value
-      console.log(this.state.challenge._id)
       axios({
         url: `${apiUrl}/challenges/${this.props.match.params.id}/comments`,
         headers: {
@@ -81,6 +80,18 @@ class Challenge extends Component {
         },
         method: 'DELETE'
       })
+        .then(() => this.props.msgAlert({
+          heading: 'Deleted comment',
+          message: messages.deleteCommentSuccess,
+          variant: 'success'
+        }))
+        .catch(error => {
+          this.props.msgAlert({
+            heading: 'Failure' + error,
+            message: messages.deleteCommentFailure,
+            variant: 'danger'
+          })
+        })
     }
 
     componentDidMount () {
