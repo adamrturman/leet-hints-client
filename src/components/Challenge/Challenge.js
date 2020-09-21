@@ -48,10 +48,11 @@ class Challenge extends Component {
         return { challenge: editedChallenge }
       })
     }
-
+    //  event handler to create a comment
     handleSubmit = event => {
       event.preventDefault()
       const text = document.getElementById('addComment').value
+      console.log(this.state.challenge._id)
       axios({
         url: `${apiUrl}/challenges/${this.props.match.params.id}/comments`,
         headers: {
@@ -63,6 +64,22 @@ class Challenge extends Component {
             text
           }
         }
+      })
+        .then(() => this.props.msgAlert({
+          heading: 'Success',
+          message: messages.createCommentSuccess,
+          variant: 'success'
+        }))
+    }
+    //  event handler to delete a comment
+    handleDelete = commentId => {
+      event.preventDefault()
+      axios({
+        url: `${apiUrl}/challenges/${this.props.match.params.id}/comments/${commentId}`,
+        headers: {
+          'Authorization': `Bearer ${this.props.user.token}`
+        },
+        method: 'DELETE'
       })
     }
 
@@ -127,37 +144,33 @@ class Challenge extends Component {
           <Card.Img variant="top" src="" />
           <Card.Body>
             <Card.Title>Title: {challenge.title}</Card.Title>
-            <Card.Text>
-              <p>Description: {challenge.description}</p>
-              <p>Difficulty: {challenge.difficulty}</p>
-              <a href={challenge.link}><p>Link to the problem</p></a>
-              <p>Hint: {challenge.hint}</p>
-              <p>Big O Complexity: {challenge.complexity}</p>
-              <div> Comments:
-                {challenge.comments.map(comment =>
-                  <Card key={comment.id}>
-                    <p>{comment.text}</p>
-                    <Button>Edit this comment</Button>
-                    <Button variant="danger">Delete this comment</Button>
-                  </Card>)}
-              </div>
-              <p>Added by: {challenge.owner}</p>
-              <Button variant="danger" onClick={this.destroy}>Delete Challenge</Button>
-              <Link to={`/challenges/${this.props.match.params.id}/edit`}>
-                <Button>Edit</Button>
-              </Link>
-              <Form onSubmit={this.handleSubmit}>
-                <Form.Group controlId="exampleForm.ControlTextarea1">
-                  <Form.Label>Add a comment</Form.Label>
-                  <Form.Control id="addComment" onChange={this.handleChange} as="textarea" rows="3" />
-                </Form.Group>
-                <Button type="submit">Add a comment</Button>
-              </Form>
-              <Link to="/challenges">
-                <Button>Back to all challenges</Button>
-              </Link>
-            </Card.Text>
-            <Button variant="primary">Reveal hints</Button>
+            <p>Description: {challenge.description}</p>
+            <p>Difficulty: {challenge.difficulty}</p>
+            <a href={challenge.link}><p>Link to the problem</p></a>
+            <p>Hint: {challenge.hint}</p>
+            <p>Big O Complexity: {challenge.complexity}</p>
+            <div> Comments:
+              {challenge.comments.map(comment =>
+                <Card key={comment._id}>
+                  <p>{comment.text}</p>
+                  <Button onClick={(event) => this.handleDelete(comment._id)} variant="danger">Delete this comment</Button>
+                </Card>)}
+            </div>
+            <p>Added by: {challenge.owner}</p>
+            <Button variant="danger" onClick={this.destroy}>Delete Challenge</Button>
+            <Link to={`/challenges/${this.props.match.params.id}/edit`}>
+              <Button>Edit</Button>
+            </Link>
+            <Form onSubmit={this.handleSubmit}>
+              <Form.Group>
+                <Form.Label>Add a comment</Form.Label>
+                <Form.Control id="addComment" onChange={this.handleChange} as="textarea" rows="3" />
+              </Form.Group>
+              <Button type="submit">Add a comment</Button>
+            </Form>
+            <Link to="/challenges">
+              <Button>Back to all challenges</Button>
+            </Link>
           </Card.Body>
         </Card>
       </Layout>

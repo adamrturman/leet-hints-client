@@ -36,30 +36,12 @@ Leet Hints is a collection of coding problems that I've solved along with descri
 - Reach for stretch goals
 - [Gantt Chart](https://docs.google.com/spreadsheets/d/1xvZ6CXHSKE_Q4nan2bH51XatrNw7pyXpcjKPrnNClT8/edit?usp=sharing)
 
-## API End Points
+## Set Up Instructions
+- Fork and clone this repository.
+- Once inside the direcotry, install dependencies with `npm install`. 
+- Run the development server with `npm start`.
 
-| Verb   | URI Pattern            | Controller#Action           | Token Required  |
-|--------|------------------------|-----------------------------|-----------------|
-| POST   | `/sign-up`              | `users#signup`             | `false`         |
-| POST   | `/sign-in`              | `users#signin`             | `false`         |
-| DELETE | `/sign-out`             | `users#signout`            | `true`          |
-| PATCH  | `/change-password`      | `users#changepw`           | `true`          |
-| PATCH  | `/update-user`          | `users#updateuser`         | `true`          |
-| GET    | `/items`                | `items#index`              | `true`          |
-| GET    | `/items/:id`            | `items#show`               | `true`          |
-| POST   | `/items`                | `items#create`             | `true`          |
-| PATCH  | `/carts/:id`            | `carts#update`             | `true`          |
-| DELETE | `/carts/:id`            | `carts#delete`             | `true`          |
-| GET    | `/carts`                | `carts#index`              | `true`          |
-| GET    | `/carts/:id`            | `carts#show`               | `true`          |
-| POST   | `/carts`                | `carts#create`             | `true`          |
-| PATCH  | `/carts/:id`            | `carts#update`             | `true`          |
-| DELETE | `/carts/:id`            | `carts#delete`             | `true`          |
-| POST   | `/create-payment-intent`| `payment-intent#create`    | `true`          |
-| GET    | `/secret`               | `secret#show`              | `true`          |
-| POST   | `/pay`                  | `pay#create`               | `true`          |
 
-All data returned from API actions is formatted as JSON.
 
 ### Technologies Used
 

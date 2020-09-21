@@ -1,13 +1,26 @@
 import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
+import NavDropdown from 'react-bootstrap/NavDropdown'
 
 const authenticatedOptions = (
+  // <Fragment>
+  //   <Nav.Link href="#change-password">Change Password</Nav.Link>
+  //   <Nav.Link href="#sign-out">Sign Out</Nav.Link>
+  //   <Nav.Link href="#challenges-create">Add a New Challenge</Nav.Link>
+  //   <Nav.Link href="#challenges">View All Challenges</Nav.Link>
+  // </Fragment>
   <Fragment>
-    <Nav.Link href="#change-password">Change Password</Nav.Link>
-    <Nav.Link href="#sign-out">Sign Out</Nav.Link>
-    <Nav.Link href="#challenges-create">Add a New Challenge</Nav.Link>
-    <Nav.Link href="#challenges">All My Challenges</Nav.Link>
+    <NavDropdown title="Challenges" alignRight id="settings-dropdown">
+      <NavDropdown.Item href="#challenges-create">Add a New Challenge</NavDropdown.Item>
+      <NavDropdown.Divider />
+      <NavDropdown.Item href="#challenges">View All Challenges</NavDropdown.Item>
+    </NavDropdown>
+    <NavDropdown title="Options" alignRight id="settings-dropdown">
+      <NavDropdown.Item href="#change-password">Change Password</NavDropdown.Item>
+      <NavDropdown.Divider />
+      <NavDropdown.Item href="#sign-out">Sign Out</NavDropdown.Item>
+    </NavDropdown>
   </Fragment>
 )
 

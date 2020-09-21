@@ -10,5 +10,6 @@ export default {
   deleteChallengeSuccess: 'You deleted a challenge!',
   deleteChallengeFailure: 'You cannot delete a challenge that belongs to someone else',
   editChallengeSuccess: 'You just updated a challenge',
-  editChallengeFailure: 'You cannot edit a challenge that belongs to someone else'
+  editChallengeFailure: 'You cannot edit a challenge that belongs to someone else',
+  createCommentSuccess: 'You just added a comment to this challenge.'
 }
