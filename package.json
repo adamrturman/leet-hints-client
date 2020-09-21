@@ -1,6 +1,6 @@
 {
   "name": "leet-hints",
-  "homepage": "https://adamrturman.github.io/leet-hints",
+  "homepage": "https://adamrturman.github.io/leet-hints-client",
   "version": "0.1.0",
   "private": true,
   "dependencies": {
