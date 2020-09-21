@@ -8,7 +8,6 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import messages from '../AutoDismissAlert/messages'
-//  import Comments from '../Comments/Comments'
 
 class Challenge extends Component {
   constructor (props) {
@@ -16,8 +15,8 @@ class Challenge extends Component {
 
     this.state = {
       challenge: null,
-      deleted: false
-      //  isCommented: false
+      deleted: false,
+      isCommented: false
     }
   }
 
@@ -67,13 +66,12 @@ class Challenge extends Component {
           }
         }
       })
-      //    .then(() => this.setState({ challenge.description: '' }))
         .then(() => this.props.msgAlert({
           heading: 'Success',
           message: messages.createCommentSuccess,
           variant: 'success'
         }))
-        .then()
+        .then(() => this.setState({ isCommented: true }))
     }
     //  event handler to delete a comment
     handleDelete = commentId => {
@@ -85,6 +83,7 @@ class Challenge extends Component {
         },
         method: 'DELETE'
       })
+        .then(() => this.setState({ isDeleted: true }))
         .then(() => this.props.msgAlert({
           heading: 'Deleted comment',
           message: messages.deleteCommentSuccess,
@@ -107,10 +106,9 @@ class Challenge extends Component {
         }
       })
         .then(res => this.setState({ challenge: res.data.challenge }))
-        .then(res => this.setState({ isCommented: true }))
         .catch(console.error)
     }
-
+    //  Delete a challenge
   destroy = () => {
     axios({
       url: `${apiUrl}/challenges/${this.props.match.params.id}`,
@@ -148,11 +146,16 @@ class Challenge extends Component {
         { pathname: '/challenges' }
       } />
     }
-    // if (isCommented) {
-    //   return <Redirect to={
-    //     { pathname: '/challenges' }
-    //   } />
-    // }
+    if (this.state.isCommented) {
+      return <Redirect to={
+        { pathname: '/challenges/' }
+      } />
+    }
+    if (this.state.isDeleted) {
+      return <Redirect to={
+        { pathname: '/challenges' }
+      } />
+    }
 
     return (
       <Layout>
