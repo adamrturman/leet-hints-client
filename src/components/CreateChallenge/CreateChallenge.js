@@ -38,7 +38,7 @@ class CreateChallenge extends Component {
       // create an object that will keep track of our updated field
       // ex. if the input's `name` is 'title' and its `value` was `1984`, then updated
       // field would be the object { 'title': '1984' }
-      const updatedField = { [event.target.name]: event.target.value }
+      const updatedField = { [event.target.name]: event.target.value, ownerName: this.props.user.email }
       // Copy the challenge properties onto the target object {}, creating a copy of `this.state.challenge`
       // Copy the updatedField onto the target object (our challenge copy)
       // return the target object as editedchallenge

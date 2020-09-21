@@ -50,6 +50,9 @@ class Challenge extends Component {
     }
     //  event handler to create a comment
     handleSubmit = event => {
+      console.log('this is this.state', this.state)
+      console.log('this is this.state.challenge', this.state.challenge)
+      console.log('this is this.state.challenge.description', this.state.challenge.description)
       event.preventDefault()
       const text = document.getElementById('addComment').value
       axios({
@@ -64,11 +67,13 @@ class Challenge extends Component {
           }
         }
       })
+      //    .then(() => this.setState({ challenge.description: '' }))
         .then(() => this.props.msgAlert({
           heading: 'Success',
           message: messages.createCommentSuccess,
           variant: 'success'
         }))
+        .then()
     }
     //  event handler to delete a comment
     handleDelete = commentId => {
@@ -167,7 +172,7 @@ class Challenge extends Component {
                   <Button onClick={(event) => this.handleDelete(comment._id)} variant="danger">Delete this comment</Button>
                 </Card>)}
             </div>
-            <p>Added by: {challenge.owner}</p>
+            <p>Added by: {challenge.ownerName}</p>
             <Button variant="danger" onClick={this.destroy}>Delete Challenge</Button>
             <Link to={`/challenges/${this.props.match.params.id}/edit`}>
               <Button>Edit</Button>
