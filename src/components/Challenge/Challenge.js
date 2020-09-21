@@ -8,6 +8,7 @@ import Button from 'react-bootstrap/Button'
 import Card from 'react-bootstrap/Card'
 import Form from 'react-bootstrap/Form'
 import messages from '../AutoDismissAlert/messages'
+//  import EditComment from '../EditComment/EditComment'
 
 class Challenge extends Component {
   constructor (props) {
@@ -200,7 +201,9 @@ class Challenge extends Component {
                 <Card key={comment._id}>
                   <p>{comment.text}</p>
                   <Button onClick={(event) => this.handleDelete(comment._id)} variant="danger">Delete this comment</Button>
+
                   <Form onSubmit={this.handleEdit}>
+                    {/*  <EditComment /> */}
                     <Form.Group>
                       <Form.Label>Edit this comment</Form.Label>
                       <Form.Control id="editComment" onChange={this.handleChange} as="textarea" rows="1" />
