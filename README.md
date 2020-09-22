@@ -1,7 +1,6 @@
 # Leet Hints: A Description
 
-Leet Hints is a collection of coding problems that I've solved along with descriptions/hints of approaches to solve the problem.
-This app will connect developers of all experience levels as they look to build their technical skills and mentor other developers.
+Leet Hints is a collection of coding problems that I've solved along with descriptions/hints of approaches to solve the problem. A user can create an account, view existing challenges and hints, or add their own. A user can also comment on challenges posted by other users. The goal of my app is two-fold: connect developers as they build their skills and as a way of displaying my growing knowledge of algorithms and data structures to others in the field.
 
 ## Important Links
 
@@ -21,7 +20,7 @@ This app will connect developers of all experience levels as they look to build 
 - As a signed-in user, I would like to edit challenges that I have created.
 - As a signed-in user, I would like to delete challenges that I have created.
 - As a signed-in user, I would like to make comments on other users' challenges.
-- As the creator of a challenge, I would like to be able to moderate the comments.
+- As the creator of a challenge, I would like to be able to moderate the comments on my challenges.
 
 
 ## Planning Story
@@ -51,7 +50,6 @@ This app will connect developers of all experience levels as they look to build 
 - CSS
 - Bootstrap
 - Express
-- Stripe
 - Mongoose
 - MongoDB
 
