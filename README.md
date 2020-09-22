@@ -1,13 +1,14 @@
 # Leet Hints: A Description
 
 Leet Hints is a collection of coding problems that I've solved along with descriptions/hints of approaches to solve the problem.
+This app will connect developers of all experience levels as they look to build their technical skills and mentor other developers.
 
 ## Important Links
 
-- [GitHub API Repo](https://github.com/worldwide-coders/educational-store-api)
-- [Deployed API](https://thawing-basin-32932.herokuapp.com)
-- [GitHub Client Repo](https://github.com/worldwide-coders/educational-store)
-- [Deployed Client](https://worldwide-coders.github.io/educational-store/#/)
+- [GitHub API Repo](https://github.com/adamrturman/leet-hints-api)
+- [Deployed API](https://nameless-anchorage-32520.herokuapp.com)
+- [GitHub Client Repo](https://github.com/adamrturman/leet-hints-client)
+- [Deployed Client](https://adamrturman.github.io/leet-hints-client/#/)
 
 ## User Stories
 
@@ -20,8 +21,7 @@ Leet Hints is a collection of coding problems that I've solved along with descri
 - As a signed-in user, I would like to edit challenges that I have created.
 - As a signed-in user, I would like to delete challenges that I have created.
 - As a signed-in user, I would like to make comments on other users' challenges.
-- As a signed-in user, I would like to edit comments that I have made.
-- As a signed-in user, I would like to delete comments that I have made.
+- As the creator of a challenge, I would like to be able to moderate the comments.
 
 
 ## Planning Story
@@ -30,7 +30,6 @@ Leet Hints is a collection of coding problems that I've solved along with descri
 - Test API connections.
 - Build basic front end components.
 - Test front end to back end connection.
-- Integrate Stripe API to handle credit a
 - Create styling for front end objects.
 - Test, debug, troubleshoot and debug.
 - Reach for stretch goals
