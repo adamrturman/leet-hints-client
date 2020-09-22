@@ -38,8 +38,9 @@ Leet Hints is a collection of coding problems that I've solved along with descri
 
 ## Set Up Instructions
 - Fork and clone this repository.
-- Once inside the direcotry, install dependencies with `npm install`. 
+- Once inside the direcotry, install dependencies with `npm install`.
 - Run the development server with `npm start`.
+- The application will run on `http://localhost:7165/` in the browser.
 
 
 
@@ -55,16 +56,19 @@ Leet Hints is a collection of coding problems that I've solved along with descri
 - Mongoose
 - MongoDB
 
-### Unsolved Problems
+### Future Improvements
 
-- Ability to search for an item by name
-- Better styling for multiple media queries
-- Would like to have additional resources to share, such as books, movies, tools etc.
-- Would like to add thank comments to each resource.
-- Would like to actually send a request to the owner of the resource, so that a person can borrow said item.
+- Refactor components for full separation of concerns
+- Style a more engaging homepage
+- Hide buttons that lead to errors instead of custom error messages
+- Display commentor's email when they post a new comment.
 
 ## Images
 
-#### ERD:
+#### Screenshot:
 
-![ERD](https://i.imgur.com/iwe6nV4.png)
+![Screen Shot](https://user-images.githubusercontent.com/67024033/93879376-36f23a80-fca1-11ea-8204-fd2352e29d1c.png)
+
+#### Wireframe:
+
+![Wireframe](https://user-images.githubusercontent.com/67024033/93879166-dbc04800-fca0-11ea-9acc-1ef3ccb0d851.png)

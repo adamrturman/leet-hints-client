@@ -13,7 +13,7 @@ export default {
   editChallengeFailure: 'You cannot edit a challenge that belongs to someone else',
   createCommentSuccess: 'You just added a comment. Click the challenge to see the comment.',
   deleteCommentSuccess: 'You just deleted that comment.',
-  deleteCommentFailure: 'You cannot delete a comment made by another user. Add your own comment instead',
+  deleteCommentFailure: 'You cannot delete a comment on challenge posted by another user.',
   editCommentSuccess: 'Comment Updated!',
   editCommentFailure: 'You cannot edit comments that are not your own!'
 }

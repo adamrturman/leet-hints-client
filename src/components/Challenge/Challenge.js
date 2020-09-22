@@ -37,7 +37,7 @@ class Challenge extends Component {
         // create an object that will keep track of our updated field
         // ex. if the input's `name` is 'title' and its `value` was `1984`, then updated
         // field would be the object { 'title': '1984' }
-        const updatedField = { [event.target.name]: event.target.value, ownerName: this.props.user.email, commentOwner: this.props.user.email }
+        const updatedField = { [event.target.name]: event.target.value, ownerName: this.props.user.email }
         // Copy the challenge properties onto the target object {}, creating a copy of `this.state.challenge`
         // Copy the updatedField onto the target object (our challenge copy)
         // return the target object as editedchallenge
@@ -197,18 +197,18 @@ class Challenge extends Component {
             <p>Big O Complexity: {challenge.complexity}</p>
             <div> Comments:
               {challenge.comments.map(comment =>
-                <Card key={comment._id}>
+                <Card className="myCard" key={comment._id}>
                   <p>{comment.text}</p>
                   <Button onClick={(event) => this.handleDelete(comment._id)} variant="danger">Delete this comment</Button>
 
-                  <Form onSubmit={this.handleEdit}>
-                    {/*  <EditComment /> */}
+                  {/* <Form onSubmit={this.handleEdit}>
+                      <EditComment />
                     <Form.Group>
                       <Form.Label>Edit this comment</Form.Label>
                       <Form.Control id="editComment" onChange={this.handleChange} as="textarea" rows="1" />
                     </Form.Group>
                     <Button onClick={(event) => this.handleEdit(comment._id)}>Submit</Button>
-                  </Form>
+                  </Form> */}
                 </Card>)}
             </div>
             <p>Added by: {challenge.ownerName}</p>
