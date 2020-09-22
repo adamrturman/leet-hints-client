@@ -28,7 +28,7 @@ const unauthenticatedOptions = (
 
 const alwaysOptions = (
   <Fragment>
-    <Nav.Link href="leet-hints-client/#/">Home</Nav.Link>
+    <Nav.Link href="leet-hints-client/#/"></Nav.Link>
   </Fragment>
 )
 
