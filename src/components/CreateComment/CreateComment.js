@@ -19,10 +19,6 @@ class CreateComment extends Component {
   // this is called whenever our component is created and inserted
   // into the DOM (first appears)
   componentDidMount () {
-    console.log('this is this', this)
-    console.log('this is this.state', this.state)
-    console.log('this is this.state.comments', this.state.comments)
-    console.log('this is this.props', this.props)
     // make a GET request for all of the comments
     axios({
       url: `${apiUrl}/comments/${this.props.match.params.id}`,

@@ -52,8 +52,6 @@ class CreateChallenge extends Component {
 
   handleSubmit = event => {
     event.preventDefault()
-    console.log('this is this', this)
-    console.log('this is this.props', this.props)
     axios({
       url: `${apiUrl}/challenges`,
       headers: {

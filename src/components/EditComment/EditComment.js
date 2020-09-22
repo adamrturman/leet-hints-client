@@ -10,7 +10,6 @@ function EditComment () {
   const handleShow = () => setShow(true)
 
   const handleEdit = commentId => {
-    console.log(commentId)
     event.preventDefault()
     const text = document.getElementById('editComment').value
     axios({
@@ -42,12 +41,16 @@ function EditComment () {
 
   return (
     <Fragment>
+      <Button variant="primary" onClick={handleShow}>
+        Edit your comment
+      </Button>
+
       <Modal show={show} onHide={handleClose}>
         <Modal.Header closeButton>
           <Modal.Title>Edit your comment</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Form>
+          <Form onSubmit={(event) => handleEdit(comment._id)}>
             <Form.Group>
               <Form.Label>Text</Form.Label>
               <Form.Control type="text" />

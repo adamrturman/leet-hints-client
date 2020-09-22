@@ -2,14 +2,9 @@ import React, { Fragment } from 'react'
 import Nav from 'react-bootstrap/Nav'
 import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
+import styles from './Header.css'
 
 const authenticatedOptions = (
-  // <Fragment>
-  //   <Nav.Link href="#change-password">Change Password</Nav.Link>
-  //   <Nav.Link href="#sign-out">Sign Out</Nav.Link>
-  //   <Nav.Link href="#challenges-create">Add a New Challenge</Nav.Link>
-  //   <Nav.Link href="#challenges">View All Challenges</Nav.Link>
-  // </Fragment>
   <Fragment>
     <NavDropdown title="Challenges" alignRight id="settings-dropdown">
       <NavDropdown.Item href="#challenges">View All Challenges</NavDropdown.Item>
@@ -38,7 +33,7 @@ const alwaysOptions = (
 )
 
 const Header = ({ user }) => (
-  <Navbar bg="primary" variant="dark" expand="md">
+  <Navbar className={styles.navbar} variant="dark" expand="md">
     <Navbar.Brand href="#">
       leet hints
     </Navbar.Brand>

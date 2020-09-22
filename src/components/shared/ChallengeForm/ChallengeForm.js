@@ -7,7 +7,7 @@ const ChallengeForm = ({ challenge, handleSubmit, handleChange, cancelPath }) =>
   <Form onSubmit={handleSubmit}>
     <Form.Label>Title</Form.Label>
     <Form.Control
-      placeholder="Two Sum"
+      placeholder="ex. Two Sum"
       value={challenge.title}
       name="title"
       onChange={handleChange}
@@ -15,7 +15,7 @@ const ChallengeForm = ({ challenge, handleSubmit, handleChange, cancelPath }) =>
 
     <Form.Label>Description</Form.Label>
     <Form.Control
-      placeholder="what is the problem"
+      placeholder="Keep it brief but thorough"
       value={challenge.author}
       name="description"
       onChange={handleChange}
@@ -31,7 +31,7 @@ const ChallengeForm = ({ challenge, handleSubmit, handleChange, cancelPath }) =>
 
     <Form.Label>Link</Form.Label>
     <Form.Control
-      placeholder="www.leetcode.com/two-sum"
+      placeholder="URL"
       value={challenge.link}
       name="link"
       onChange={handleChange}
