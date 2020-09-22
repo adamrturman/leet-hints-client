@@ -1,0 +1,1 @@
+{"version":3,"sources":["components/Header/Header.css"],"names":[],"mappings":"AAAA,uBACE,wBAA0B","file":"static/css/main.e4775c7f.css","sourcesContent":[":local(.navbar) {\n  background-color: #495877;\n}\n\n\n\n// WEBPACK FOOTER //\n// ./src/components/Header/Header.css"],"sourceRoot":""}
