@@ -19,7 +19,7 @@ import ChangePassword from '../ChangePassword/ChangePassword'
 class App extends Component {
   constructor () {
     super()
-
+    //  the initial state will have no user or message alerts
     this.state = {
       user: null,
       msgAlerts: []
@@ -36,7 +36,8 @@ class App extends Component {
 
   render () {
     const { msgAlerts, user } = this.state
-
+    //  show the header/navbar on the page with the corresponding route links
+    //  authetnicated routes require the user to be signed in
     return (
       <Fragment>
         <Header user={user} />

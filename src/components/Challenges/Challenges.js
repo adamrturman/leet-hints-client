@@ -29,23 +29,15 @@ class Challenges extends Component {
       .then(res => this.setState({ challenges: res.data.challenges }))
       .catch(console.error)
   }
-
-  // render () {
-  //   const challenges = this.state.challenges.map(challenge => (
-  //     <li key={challenge._id}>
-  //       <Link to={`/challenges/${challenge._id}`}>
-  //         {challenge.title}
-  //       </Link>
-  //     </li>
-  //   ))
-
+  //  map each challenge from "challenges" and inject each one into a ChallengesCard
+  //  wrapped in a link that contains that challenge's id
   render () {
     const challenges = this.state.challenges.map(challenge => (
       <Link key={challenge._id} to={`/challenges/${challenge._id}`}>
         <ChallengesCards card={challenge} />
       </Link>
     ))
-
+    //  layout on the page with the most recent challenge showing first
     return (
       <Layout>
         <div className='container col-sm-12'>
