@@ -1,3 +1,6 @@
+//  this file creates new challenges
+//  this is the view when user clicks "add a new challenge"
+//  it uses the ChallengeForm component
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'

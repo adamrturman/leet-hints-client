@@ -4,6 +4,7 @@ import Navbar from 'react-bootstrap/Navbar'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import styles from './Header.css'
 
+//  options only available after signing in
 const authenticatedOptions = (
   <Fragment>
     <NavDropdown title="Challenges" alignRight id="settings-dropdown">
@@ -19,6 +20,7 @@ const authenticatedOptions = (
   </Fragment>
 )
 
+//  options only available before signing in
 const unauthenticatedOptions = (
   <Fragment>
     <Nav.Link href="#sign-up">Sign Up</Nav.Link>
@@ -26,12 +28,14 @@ const unauthenticatedOptions = (
   </Fragment>
 )
 
+//  options always availabe despite user status
 const alwaysOptions = (
   <Fragment>
     <Nav.Link href="leet-hints-client/#/"></Nav.Link>
   </Fragment>
 )
 
+//  This is the header/navbar that will house and manage the links to other views
 const Header = ({ user }) => (
   <Navbar className={styles.navbar} variant="dark" expand="md">
     <Navbar.Brand href="#">

@@ -1,5 +1,4 @@
 import React from 'react'
-//  import './Footer.css'
 
 const Footer = () => (
   <footer>
@@ -7,7 +6,7 @@ const Footer = () => (
     <div className='gitHub'>
       <a href='https://github.com/adamrturman'>
         <i className="devicon-github-plain-wordmark colored"></i>
-        GitHub Repo
+        GitHub Link
       </a>
     </div>
   </footer>

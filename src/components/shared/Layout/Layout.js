@@ -1,3 +1,4 @@
+//  This file is the 'wrapper' for all of the content rendered on the page
 import React from 'react'
 import Footer from '../Footer/Footer'
 

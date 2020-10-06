@@ -1,3 +1,5 @@
+//  this file lets us edit the fields for an existing challenge
+//  it uses the same form that was used to create a challenge
 import React, { Component } from 'react'
 import { Redirect } from 'react-router-dom'
 import axios from 'axios'
@@ -10,7 +12,8 @@ import messages from '../AutoDismissAlert/messages'
 class EditChallenge extends Component {
   constructor (props) {
     super(props)
-
+    //  the intial state will have "updated" set to false
+    //  we will later "toggle" this to be true
     this.state = {
       challenge: {
         title: '',
@@ -49,7 +52,8 @@ class EditChallenge extends Component {
       return { challenge: editedChallenge }
     })
   }
-
+  //  function to handle the submission of the form
+  //  it will change the state of "updated" to true and render the appropriate messaging
   handleSubmit = event => {
     event.preventDefault()
     axios({
@@ -78,11 +82,11 @@ class EditChallenge extends Component {
   render () {
     const { handleChange, handleSubmit } = this
     const { updated, challenge } = this.state
-
+    //  redirect to all challenges view when the challenge is successfully updated
     if (updated) {
       return <Redirect to={'/challenges/'} />
     }
-
+    //  Layout on the page
     return (
       <Layout>
         <ChallengeForm

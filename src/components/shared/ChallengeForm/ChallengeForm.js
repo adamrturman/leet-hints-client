@@ -1,3 +1,5 @@
+//  this file is the form that is used to create new Challenges, when the user clicks
+//  'add a new challenge' in the header/navbar
 import React from 'react'
 import { Link } from 'react-router-dom'
 import Form from 'react-bootstrap/Form'
