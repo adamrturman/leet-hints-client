@@ -9,7 +9,7 @@ import Layout from '../shared/Layout/Layout'
 class CreateChallenge extends Component {
   constructor (props) {
     super(props)
-
+    //  the initial state of the challenge will be blank and won't have an id assigned yet
     this.state = {
       challenge: {
         title: '',
@@ -66,11 +66,11 @@ class CreateChallenge extends Component {
   render () {
     const { handleChange, handleSubmit } = this
     const { createdChallengeId, challenge } = this.state
-
+    //  redirect to the all challenges view once the challenge is created (has an id)
     if (createdChallengeId) {
       return <Redirect to={'/challenges/'} />
     }
-
+    //  Layout on the page with the form to create a challenge
     return (
       <Layout>
         <ChallengeForm
