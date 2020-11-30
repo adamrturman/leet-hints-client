@@ -36,7 +36,7 @@ Leet Hints is a collection of coding problems that I've solved along with descri
 
 ## Set Up Instructions
 - Fork and clone this repository.
-- Once inside the direcotry, install dependencies with `npm install`.
+- Once inside the directory, install dependencies with `npm install`.
 - Run the development server with `npm start`.
 - The application will run on `http://localhost:7165/` in the browser.
 
